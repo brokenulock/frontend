@@ -1,0 +1,158 @@
+.landingPage {
+  width: 100%;
+}
+
+/* Navigation */
+
+.navigationContainer {
+  margin: auto;
+  width: 100%;
+  position: fixed;
+  background: #33b8f3;
+  padding: 10px;
+}
+
+.navLogo {
+  width: 300px;
+}
+.navLogo:hover {
+  cursor: pointer;
+}
+
+/* Home Page */
+.homeContainer {
+  /* width: 100%; */
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+}
+
+.section {
+  /* margin: auto; */
+  /* max-height: 300px;  */
+  /* width: 100%; */
+  /* align-content: center; */
+  /* display: flex; */
+}
+.section:nth-child(odd) {
+  background: grey;
+}
+
+.section:first-child {
+  padding-top: 30px;
+  height: 100vh;
+  background: #33b8f3;
+}
+
+.topMain {
+  margin: auto;
+  height: 95%;
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.HomePageLogoContainer {
+  width: 300px;
+}
+.HomePageLogo {
+}
+
+.topTextContainer {
+  margin: 50px;
+  width: 200px;
+  color: white;
+  text-align: center;
+}
+
+.topButton {
+  background: #9b9b9b;
+  border: #9b9b9b;
+  font-weight: bold;
+}
+
+.fa-arrow-down {
+  color: #9b9b9b;
+  margin:auto;
+}
+.fa-arrow-down:hover {
+  cursor: pointer;
+}
+
+.bottomButton {
+  height: 5%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+}
+.sectionContent {
+  margin: auto;
+  padding: 10px;
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+}
+.ContentReverse {
+  color: white;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.textContainer {
+  width: 30%;
+  margin: auto;
+}
+.imgContainer {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+}
+.illustration {
+  padding: 10px;
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 700px) {
+  .HomePageLogoContainer {
+    padding: 30px;
+  }
+  .sectionContent {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .topMain{
+      flex-direction: column
+  }
+  .HomePageLogoContainer {
+    padding: 10px 0px;
+    width:50%;
+  }
+  .topTextContainer{
+      margin: 0px;
+      width: 95%;
+  }
+  .topMain{
+      height:90%
+  }
+  .bottomButton{
+      height: 10%;
+  }
+  .sectionContent {
+    flex-direction: column;
+  }
+  .textContainer {
+    width: 90%;
+    margin: auto;
+  }
+  .imgContainer {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+  }
+}
