@@ -115,7 +115,7 @@ export default function Home() {
           </div>
           <div className="textContainer">
             <h5>
-              This Web App is mostly being made to help New Yorkers retrieve
+              This Web App is being designed with the idea to help New Yorkers retrieve
               their bikes. But there is nothing stopping us from helping others
               worldwide.
             </h5>
