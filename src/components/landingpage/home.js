@@ -101,7 +101,7 @@ export default function Home() {
           </div>
           <div className="textContainer">
             <h5>
-              Jimmy was able to search the last know location of his bike and
+              Jimmy was able to search the last known location of his bike and
               take the proper actions to retrieve it. All thanks to the
               community.
             </h5>
