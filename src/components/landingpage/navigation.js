@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../../bulfmlimg/navlogo.png";
 import { Link as Scroll } from "react-scroll";
+import TabletMenu from './material-ui/materialUI'
 
 export default function Navigation() {
   return (
@@ -17,9 +18,9 @@ export default function Navigation() {
           <img src={Logo} alt="" />
         </div>
       </Scroll>
-      {/* <h1>BROKEN U-LOCK</h1>  */}
-      <nav>
-        <a />
+      <TabletMenu />
+      <nav className="navigation">
+        <a href="https://reactlocation.netlify.com/" className="footerLink">Prototype Map</a>
       </nav>
     </div>
   );

@@ -19,12 +19,13 @@ export default function Home() {
             <img src={HomepageLogo} alt="" className="HomePageLogo" />
           </div>
           <div className="topTextContainer">
-            <h4>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </h4>
-            <a disabled className="button topButton" href="#">
-              Coming Soon
+            <h3>
+              Bringing the community together to help locate stolen bicycles.
+              <br />
+              EST. 2016
+            </h3>
+            <a disabled className="button topButton" href="/#">
+              Web App Coming Soon
             </a>
           </div>
         </div>
@@ -44,12 +45,12 @@ export default function Home() {
             <img src={DesignOne} className="illustration" alt="" />
           </div>
           <div className="textContainer">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
-              cursus vitae congue mauris rhoncus.
-            </p>
-          </div>{" "}
+            <h5>
+              Jimmy stepped inside a coffee shop to get a drink. He was only
+              gone for 10 minutes. When he came outside he realized his bike had
+              been stolen.
+            </h5>
+          </div>
         </div>
       </div>
       <div className="section">
@@ -58,11 +59,11 @@ export default function Home() {
             <img src={DesignTwo} className="illustration" alt="" />
           </div>
           <div className="textContainer">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
-              cursus vitae congue mauris rhoncus.
-            </p>
+            <h5>
+              Jimmy quickly went on brokenulock.com and made a post alerting the
+              other users his bike had been stolen. He listed the make, model,
+              location and any other valuable information.
+            </h5>
           </div>
         </div>
       </div>
@@ -72,11 +73,10 @@ export default function Home() {
             <img src={DesignThree} className="illustration" alt="" />
           </div>
           <div className="textContainer">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
-              cursus vitae congue mauris rhoncus.
-            </p>
+            <h5>
+              Acouple days later, Rocco is on his way home and notices someone
+              riding a bike that he remembers seeing on brokenulock.com
+            </h5>
           </div>{" "}
         </div>
       </div>
@@ -86,11 +86,11 @@ export default function Home() {
             <img src={DesignFour} className="illustration" alt="" />
           </div>
           <div className="textContainer">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
-              cursus vitae congue mauris rhoncus.
-            </p>
+            <h5>
+              Rocco quickly opens up the web app, finds Jimmy's post and in
+              seconds he is able to contact Jimmy to let him know he just spotted someone with
+              his bike going down the block.
+            </h5>
           </div>
         </div>
       </div>
@@ -100,11 +100,11 @@ export default function Home() {
             <img src={DesignFive} className="illustration" alt="" />
           </div>
           <div className="textContainer">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
-              cursus vitae congue mauris rhoncus.
-            </p>
+            <h5>
+              Jimmy was able to search the last know location of his bike and
+              take the proper actions to retrieve it. All thanks to the
+              community.
+            </h5>
           </div>
         </div>
       </div>
@@ -114,11 +114,11 @@ export default function Home() {
             <img src={DesignSix} className="illustration" alt="" />
           </div>
           <div className="textContainer">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu
-              cursus vitae congue mauris rhoncus.
-            </p>
+            <h5>
+              This Web App is mostly being made to help New Yorkers retrieve
+              their bikes. But there is nothing stopping us from helping others
+              worldwide.
+            </h5>
           </div>
         </div>
       </div>

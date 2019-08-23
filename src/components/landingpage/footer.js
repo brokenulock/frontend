@@ -15,23 +15,28 @@ export default function Footer() {
         </a>
       </h6>
       <div className="icons">
-        <a
+      <i
+          href="https://www.youtube.com/watch?v=reFElyEkXPg&t=20s"
+          class="fa fa-linkedin iconLinks"
+          alt=""
+        />
+        <i
           href="https://www.instagram.com/stolenbikesnyc/"
           class="fa fa-instagram iconLinks"
         />
-        <a
+        <i
           href="https://www.instagram.com/explore/tags/stolenbikesnyc/"
           class="fa fa-hashtag iconLinks"
         />
-        <a
+        <i
           href="https://twitter.com/fixmylifenyc"
           class="fa fa-twitter iconLinks"
         />
-        <a
+        <i
           href="https://github.com/fixmylifedesigns"
           class="fa fa-github iconLinks"
         />
-        <a
+        <i
           href="https://www.linkedin.com/in/irvingduran/"
           class="fa fa-linkedin iconLinks"
         />

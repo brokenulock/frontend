@@ -10,6 +10,8 @@
   position: fixed;
   background: #33b8f3;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navLogo {
@@ -17,6 +19,29 @@
 }
 .navLogo:hover {
   cursor: pointer;
+}
+
+.fa-bars {
+  font-size: 40px;
+  color: white;
+  display: none;
+}
+.fa-bars:hover {
+  cursor: pointer;
+}
+.fa-chevron-circle-down {
+  display: none;
+  font-size: 40px;
+  color: white;
+}
+.fa-chevron-circle-down:hover {
+  cursor: pointer;
+}
+
+.menuFont {
+  font-size: 20px;
+  font-weight: bold;
+  color: grey;
 }
 
 /* Home Page */
@@ -73,7 +98,7 @@
 
 .fa-arrow-down {
   color: #9b9b9b;
-  margin:auto;
+  margin: auto;
 }
 .fa-arrow-down:hover {
   cursor: pointer;
@@ -86,7 +111,6 @@
   display: flex;
   justify-content: center;
   align-content: center;
-
 }
 .sectionContent {
   margin: auto;
@@ -117,6 +141,12 @@
 }
 
 @media only screen and (max-width: 700px) {
+  .navigation {
+    display: none;
+  }
+  .fa-bars {
+    display: block;
+  }
   .HomePageLogoContainer {
     padding: 30px;
   }
@@ -126,22 +156,33 @@
 }
 
 @media only screen and (max-width: 450px) {
-  .topMain{
-      flex-direction: column
+  .navigationContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .fa-bars {
+    display: none;
+  }
+  .fa-chevron-circle-down {
+    display: block;
+  }
+  .topMain {
+    flex-direction: column;
   }
   .HomePageLogoContainer {
     padding: 10px 0px;
-    width:50%;
+    width: 50%;
   }
-  .topTextContainer{
-      margin: 0px;
-      width: 95%;
+  .topTextContainer {
+    margin: 0px;
+    width: 95%;
   }
-  .topMain{
-      height:90%
+  .topMain {
+    height: 90%;
   }
-  .bottomButton{
-      height: 10%;
+  .bottomButton {
+    height: 10%;
   }
   .sectionContent {
     flex-direction: column;
@@ -159,30 +200,30 @@
 }
 
 /* Footer */
-.footerContainer{
-    min-height:40px;
-    text-align: center;
-    background: #33b8f3;
-    font-weight: bold;
-    color:white;
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: space-around
+.footerContainer {
+  min-height: 40px;
+  padding: 5px;
+  text-align: center;
+  background: #33b8f3;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
-.iconLinks{
-    color:white;
-    /* font-weight: bold; */
-    font-size:25px;
-    padding: 0px 4px;
+.iconLinks {
+  color: white;
+  /* font-weight: bold; */
+  font-size: 25px;
+  padding: 0px 4px;
 }
-.iconLinks:hover{
-    cursor: pointer;
+.iconLinks:hover {
+  cursor: pointer;
 }
-.footerLink{
-    color:white;
-    font-weight: bold;
+.footerLink {
+  color: white;
+  font-weight: bold;
 }
-.footerLink:hover{
-    cursor: pointer;
+.footerLink:hover {
+  cursor: pointer;
 }
-
