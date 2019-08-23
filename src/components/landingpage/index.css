@@ -147,6 +147,21 @@
   .fa-bars {
     display: block;
   }
+/*  */
+.sectionContent {
+    flex-direction: column;
+  }
+  .textContainer {
+    width: 90%;
+    margin: auto;
+  }
+  .imgContainer {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+  }
+/*  */
   .HomePageLogoContainer {
     padding: 30px;
   }
