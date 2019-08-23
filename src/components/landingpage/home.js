@@ -22,7 +22,7 @@ export default function Home() {
             <h3>
               Bringing the community together to help locate stolen bicycles.
               <br />
-              EST. 2016
+              SINCE 2016
             </h3>
             <a disabled className="button topButton" href="/#">
               Web App Coming Soon
