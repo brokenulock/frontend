@@ -74,7 +74,7 @@ export default function Home() {
           </div>
           <div className="textContainer">
             <h5>
-              Acouple days later, Rocco is on his way home and notices someone
+              A couple of days later, Rocco is on his way home and notices someone
               riding a bike that he remembers seeing on brokenulock.com
             </h5>
           </div>{" "}
