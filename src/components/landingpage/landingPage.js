@@ -8,7 +8,7 @@ export default function LandingPage() {
     <div className="landingPage">
       <Navigation />
       <Home />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

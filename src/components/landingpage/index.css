@@ -81,6 +81,7 @@
 
 .bottomButton {
   height: 5%;
+  /* padding-top:0.5%; */
   background: white;
   display: flex;
   justify-content: center;
@@ -158,5 +159,30 @@
 }
 
 /* Footer */
-
+.footerContainer{
+    min-height:40px;
+    text-align: center;
+    background: #33b8f3;
+    font-weight: bold;
+    color:white;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around
+}
+.iconLinks{
+    color:white;
+    /* font-weight: bold; */
+    font-size:25px;
+    padding: 0px 4px;
+}
+.iconLinks:hover{
+    cursor: pointer;
+}
+.footerLink{
+    color:white;
+    font-weight: bold;
+}
+.footerLink:hover{
+    cursor: pointer;
+}
 
