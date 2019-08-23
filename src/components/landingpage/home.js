@@ -19,24 +19,24 @@ export default function Home() {
             <img src={HomepageLogo} alt="" className="HomePageLogo" />
           </div>
           <div className="topTextContainer">
-          <h4>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </h4>
-          <a disabled className="button topButton" href="#">Coming Soon</a>
+            <h4>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </h4>
+            <a disabled className="button topButton" href="#">
+              Coming Soon
+            </a>
           </div>
         </div>
-        <div className="bottomButton">
-          <Scroll
-            activeClass="active"
-            to="section1"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className="fa fa-arrow-down"
-          />
-        </div>
+        <Scroll
+          activeClass="active"
+          to="section1"
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          className="fa fa-arrow-down bottomButton"
+        />
       </div>
       <div className="section" id="section1">
         <div className="sectionContent">
