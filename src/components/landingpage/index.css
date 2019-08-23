@@ -242,3 +242,16 @@
 .footerLink:hover {
   cursor: pointer;
 }
+
+@media only screen and (max-width: 450px) {
+  
+.footerContainer {
+  min-height: 40px;
+  padding: 10px;
+  text-align: center;
+  Flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+  }
