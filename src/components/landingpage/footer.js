@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="icons">
       <a
           href="https://www.youtube.com/watch?v=reFElyEkXPg&t=20s"
-          class="fa fa-linkedin iconLinks"
+          class="fa fa-youtube iconLinks"
           alt=""
         />
         <a
