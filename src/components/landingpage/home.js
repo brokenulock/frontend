@@ -20,9 +20,10 @@ export default function Home() {
           </div>
           <div className="topTextContainer">
             <h3>
-              Bringing the community together to help locate stolen bicycles.
-              <br />
-              SINCE 2016
+              <section className="introText">Bringing the community together to help locate stolen bicycles.
+              </section>
+              <section>
+              SINCE 2016</section>
             </h3>
             <a disabled className="button topButton" href="/#">
               Web App Coming Soon
