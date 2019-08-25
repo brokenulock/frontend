@@ -22,7 +22,7 @@ export default function Home() {
             <h3>
               Bringing the community together to help locate stolen bicycles.
               <br />
-              EST. 2016
+              SINCE 2016
             </h3>
             <a disabled className="button topButton" href="/#">
               Web App Coming Soon
@@ -101,7 +101,7 @@ export default function Home() {
           </div>
           <div className="textContainer">
             <h5>
-              Jimmy was able to search the last know location of his bike and
+              Jimmy was able to search the last known location of his bike and
               take the proper actions to retrieve it. All thanks to the
               community.
             </h5>
@@ -115,7 +115,7 @@ export default function Home() {
           </div>
           <div className="textContainer">
             <h5>
-              This Web App is mostly being made to help New Yorkers retrieve
+              This Web App is being designed with the idea to help New Yorkers retrieve
               their bikes. But there is nothing stopping us from helping others
               worldwide.
             </h5>
