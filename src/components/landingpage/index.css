@@ -132,12 +132,20 @@
 .imgContainer {
   width: 60%;
   display: flex;
-  flex-direction: row;
+  align-items: center;
 }
 .illustration {
   padding: 10px;
-  width: 100%;
-  height: auto;
+  width: 90%;
+  margin: auto;
+  /* height:100px; */
+  /* height: auto; */
+}
+@media only screen and (max-width: 900px) {
+  .sectionContent {
+    padding: 0;
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -147,8 +155,11 @@
   .fa-bars {
     display: block;
   }
-/*  */
-.sectionContent {
+  /*  */
+  .sectionContent {
+    padding:10px 0 ;
+    width: 100%;
+    align-items: center;
     flex-direction: column;
   }
   .textContainer {
@@ -157,16 +168,12 @@
   }
   .imgContainer {
     width: 90%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
   }
-/*  */
+  /*  */
   .HomePageLogoContainer {
     padding: 30px;
   }
   .sectionContent {
-    width: 100%;
   }
 }
 
@@ -208,12 +215,20 @@
   }
   .imgContainer {
     width: 90%;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
   }
 }
 
+@media only screen and (max-width: 350px) {
+.navLogo {
+  width: 100%;
+}
+.introText{
+  display: none;
+}
+.topButton{
+  display: none;
+}
+}
 /* Footer */
 .footerContainer {
   min-height: 40px;
