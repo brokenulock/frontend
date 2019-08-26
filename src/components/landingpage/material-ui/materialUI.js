@@ -35,10 +35,17 @@ export default function TabletMenu() {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          {" "}
-          <a href="https://reactlocation.netlify.com/" className="menuFont">
-            Prototype Map
-          </a>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <a href="https://reactlocation.netlify.com/" className="menuFont">
+              Prototype Map
+            </a>
+            <a href="https://documenter.getpostman.com/view/7133880/SVfMUAdJ?version=latest" className="menuFont">
+              Api Doc
+            </a>
+            <a href="https://github.com/brokenulock" className="menuFont">
+              Github Repo
+            </a>
+          </div>
         </MenuItem>
       </Menu>
     </div>
