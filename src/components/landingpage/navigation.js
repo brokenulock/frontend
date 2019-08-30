@@ -8,18 +8,19 @@ import { Link } from "react-router-dom";
 export default function Navigation(props) {
   return (
     <div className="navigationContainer">
-      <Scroll
+      {/* <Scroll
         activeClass="active"
         to="top"
         spy={true}
         smooth={true}
         offset={-70}
         duration={500}
-      >
+      > */}
         <div className="navLogo">
-          <img src={Logo} alt="" />
+          <a href="/">
+          <img  src={Logo} alt="" /></a>
         </div>
-      </Scroll>
+      {/* </Scroll> */}
       <TabletMenu signOut={props.signOut} signedin={props.signedin} />
       <nav className="navigation">
         <a
@@ -50,13 +51,13 @@ export default function Navigation(props) {
         >
           Posts
         </Link>
-        <Link
+        {/* <Link
           to="/UserPage"
           className="footerLink"
           style={{ marginRight: "15px" }}
         >
           User
-        </Link>
+        </Link> */}
         <LoginForm
           signOut={props.signOut}
           signedin={props.signedin}

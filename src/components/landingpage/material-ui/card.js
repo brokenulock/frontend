@@ -39,7 +39,8 @@ const useStyles = makeStyles(theme => ({
   avatar: {
     width: "70px",
     height: "70px",
-    border: "solid 2px black"
+    border: "solid 2px black",
+    positon:"relative"
   }
 }));
 

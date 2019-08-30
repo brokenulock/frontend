@@ -3,32 +3,12 @@ import PostCard from "../material-ui/card";
 
 export default function PostsPage(props) {
   return (
-    <div>
-      <div className="homeContainer">
-        <div
-          className="section"
-          id="top"
-          style={{ height: "auto", paddingTop:"100px", margin:"auto" }}
-        >
-          <div style={{ display: "flex", flexDirection: "row", flexWrap:"wrap" }}>
-            {props.posts &&
-              props.posts.map(post => {
-                return <PostCard post={post} />;
-              })}
-          </div>
-          <div style={{ display: "flex", flexDirection: "row", flexWrap:"wrap" }}>
-            {props.posts &&
-              props.posts.map(post => {
-                return <PostCard post={post} />;
-              })}
-          </div>
-          <div style={{ display: "flex", flexDirection: "row", flexWrap:"wrap" }}>
-            {props.posts &&
-              props.posts.map(post => {
-                return <PostCard post={post} />;
-              })}
-          </div>
-        </div>
+    <div className="postContainer">
+      <div className="cardsContainer">
+        {props.posts &&
+          props.posts.map(post => {
+            return <PostCard post={post} />;
+          })}
       </div>
     </div>
   );
