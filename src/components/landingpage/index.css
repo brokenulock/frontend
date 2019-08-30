@@ -74,9 +74,10 @@
   /* width: 100%; */
   /* align-content: center; */
   /* display: flex; */
+  background: white;
 }
 .section:nth-child(odd) {
-  background: grey;
+  background: #9B9B9B;
 }
 
 .section:first-child {
