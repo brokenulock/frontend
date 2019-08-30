@@ -16,10 +16,11 @@ export default function Navigation(props) {
         offset={-70}
         duration={500}
       > */}
-        <div className="navLogo">
-          <a href="/">
-          <img  src={Logo} alt="" /></a>
-        </div>
+      <div className="navLogo">
+        <a href="/">
+          <img src={Logo} alt="" />
+        </a>
+      </div>
       {/* </Scroll> */}
       <TabletMenu signOut={props.signOut} signedin={props.signedin} />
       <nav className="navigation">
@@ -49,7 +50,7 @@ export default function Navigation(props) {
           className="footerLink"
           style={{ marginRight: "15px" }}
         >
-          Posts
+          Seeded Data
         </Link>
         {/* <Link
           to="/UserPage"

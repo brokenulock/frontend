@@ -2,7 +2,7 @@ import React from "react";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import MobileLoginForm from "./MobileLoginForm";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function TabletMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -50,11 +50,7 @@ export default function TabletMenu(props) {
             <a href="https://github.com/brokenulock" className="menuFont">
               Github Repo
             </a>
-            <Link
-              to="/posts"
-              className="footerLink"
-              style={{ marginRight: "15px" }}
-            >
+            <Link to="/posts" className="menuFont">
               Seeded Data
             </Link>
             <MobileLoginForm
