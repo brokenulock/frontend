@@ -24,6 +24,10 @@ export default function ShareMenu(props) {
     setAnchorEl(null);
   }
 
+  const title = `Stolen ${props.post.manufacturer}:${props.post.model} in ${props.post.location}` ;
+  const children = `Please contact ${props.post.username}`;
+  const url = `brokenulock.com/posts/${props.post.post_id}`;
+
   return (
     <div>
       <p
@@ -42,41 +46,24 @@ export default function ShareMenu(props) {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          {" "}
-          <TwitterShareButton
-            title={`Stolen ${props.post.manufacturer} in ${props.post.location}`}
-            children={`Please contact ${props.post.username}`}
-            url={`brokenulock.com/posts/${props.post.post_id}`}
-          >
+          <TwitterShareButton title={title} children={children} url={url}>
             <TwitterIcon round={true} width="10" height="10"></TwitterIcon>
-          </TwitterShareButton>{" "}
+          </TwitterShareButton>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           {" "}
-          <FacebookShareButton
-            title={`Stolen ${props.post.brand} in ${props.post.location}`}
-            children={`Please contact ${props.post.username}`}
-            url={`brokenulock.com/posts/${props.post.id}`}
-          >
+          <FacebookShareButton title={title} children={children} url={url}>
             <FacebookIcon round={true} width="10" height="10"></FacebookIcon>
           </FacebookShareButton>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           {" "}
-          <LinkedinShareButton
-            title={`Stolen ${props.post.brand} in ${props.post.location}`}
-            children={`Please contact ${props.post.username}`}
-            url={`brokenulock.com/posts/${props.post.id}`}
-          >
+          <LinkedinShareButton title={title} children={children} url={url}>
             <LinkedinIcon round={true} width="10" height="10"></LinkedinIcon>
           </LinkedinShareButton>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-          <EmailShareButton
-            title={`Stolen ${props.post.brand} in ${props.post.location}`}
-            children={`Please contact ${props.post.username}`}
-            url={`brokenulock.com/posts/${props.post.id}`}
-          >
+          <EmailShareButton title={title} children={children} url={url}>
             <EmailIcon round={true} width="10" height="10"></EmailIcon>
           </EmailShareButton>
         </MenuItem>
