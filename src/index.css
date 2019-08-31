@@ -29,6 +29,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background: #33b8f3;
 }
 ol, ul {
 	list-style: none;
@@ -44,4 +45,14 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+.welcome{
+	text-align: center;
+	margin:auto;
+	width: 100%;
+	position: absolute;
+	color: white;
+	top:80px;
+	font-weight: bold;
 }

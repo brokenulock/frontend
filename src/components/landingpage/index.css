@@ -11,6 +11,7 @@
   background: #33b8f3;
   padding: 10px;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -19,6 +20,21 @@
 }
 .navLogo:hover {
   cursor: pointer;
+}
+.navigation {
+  display: flex;
+  /* flex-direction: row; */
+}
+
+.navImgContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+.mobileLogo {
+  margin: auto;
+  width: 250px;
 }
 
 .fa-bars {
@@ -58,9 +74,10 @@
   /* width: 100%; */
   /* align-content: center; */
   /* display: flex; */
+  background: white;
 }
 .section:nth-child(odd) {
-  background: grey;
+  background: #9B9B9B;
 }
 
 .section:first-child {
@@ -157,7 +174,7 @@
   }
   /*  */
   .sectionContent {
-    padding:10px 0 ;
+    padding: 10px 0;
     width: 100%;
     align-items: center;
     flex-direction: column;
@@ -219,15 +236,15 @@
 }
 
 @media only screen and (max-width: 350px) {
-.navLogo {
-  width: 100%;
-}
-.introText{
-  display: none;
-}
-.topButton{
-  display: none;
-}
+  .navLogo {
+    width: 100%;
+  }
+  .introText {
+    display: none;
+  }
+  .topButton {
+    display: none;
+  }
 }
 /* Footer */
 .footerContainer {
@@ -259,14 +276,31 @@
 }
 
 @media only screen and (max-width: 450px) {
-  
-.footerContainer {
-  min-height: 40px;
-  padding: 10px;
-  text-align: center;
-  Flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
+  .footerContainer {
+    min-height: 40px;
+    padding: 10px;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
 }
 
-  }
+/* posts page */
+
+.postContainer {
+  width: 100;
+}
+.cardsContainer {
+  height: auto;
+  padding-top: 100px;
+  margin: auto;
+  /* border:solid; */
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
