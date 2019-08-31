@@ -11,7 +11,6 @@ function App() {
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
       setUserData({ isSignedIn: !!user });
-
       if (!!user) {
         setSignedin(true);
         if (!localStorage.getItem("token")) {
@@ -42,6 +41,7 @@ function App() {
 
   return (
     <div className="App">
+      {console.log(userData)}
       <LandingPage signOut={signOut} signedin={signedIn} />
       <div className="welcome">
         <h5>{welcome}</h5>

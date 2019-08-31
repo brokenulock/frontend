@@ -1,21 +1,22 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import clsx from "clsx";
+// import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
+// import Avatar from "@material-ui/core/Avatar";
+// import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import ShareIcon from "@material-ui/icons/Share";
-import CallIcon from "@material-ui/icons/Call";
-import TextsmsIcon from '@material-ui/icons/Textsms';
-import EmailIcon from '@material-ui/icons/Email';
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+// import ShareIcon from "@material-ui/icons/Share";
+// import CallIcon from "@material-ui/icons/Call";
+// import TextsmsIcon from "@material-ui/icons/Textsms";
+// import EmailIcon from "@material-ui/icons/Email";
+// import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+// import MoreVertIcon from "@material-ui/icons/MoreVert";
+import ShareMenu from "../material-ui/shareMenu";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -40,7 +41,7 @@ const useStyles = makeStyles(theme => ({
     width: "70px",
     height: "70px",
     border: "solid 2px black",
-    positon:"relative"
+    positon: "relative"
   }
 }));
 
@@ -56,17 +57,21 @@ export default function PostCard(props) {
     <Card className={classes.card}>
       <CardHeader
         avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            <img src={props.post.avatar} />
-          </Avatar>
+          <div
+            aria-label="recipe"
+            className={classes.avatar}
+            style={{ borderRadius: "100%", overflow: "hidden" }}
+          >
+            <img src={props.post.avatar} alt="avatar" />
+          </div>
         }
         // action={
         //   <IconButton aria-label="settings">
         //     <MoreVertIcon />
         //   </IconButton>
         // }
-        title={props.post.username}
-        subheader={props.post.location}
+        title={<h6>{props.post.username}</h6>}
+        subheader={<p>{props.post.location}</p>}
       />
       <CardMedia
         className={classes.media}
@@ -78,63 +83,91 @@ export default function PostCard(props) {
           variant="body2"
           color="textSecondary"
           component="p"
-          style={{ height: "40px", fontSize:"12px" }}
+          style={{ height: "40px", fontSize: "12px" }}
         >
           {props.post.description}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="email" >
-          <EmailIcon fontSize="large"/> 
-        </IconButton>
-        <IconButton aria-label="call">
-          <CallIcon fontSize="large" />
-        </IconButton>
-        <IconButton aria-label="TextsmsIcon">
-          <TextsmsIcon fontSize="large"/>
-        </IconButton>{" "}
-        <IconButton aria-label="share">
-          <ShareIcon fontSize="large"/>
-        </IconButton>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
-          })}
+      <CardActions
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          width: "100%"
+        }}
+      >
+        {/* <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            width:"100%"
+          }}
+        > */}
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <a
+            href={`mailto:${props.post.email}`}
+            class="fa fa-envelope envelope"
+            style={{ color: "grey", fontSize: "25px", margin: "0 10px" }}
+          >
+            <p style={{ display: "none" }}>envelope</p>
+          </a>
+          <a
+            href={`tel:${props.post.phone}`}
+            class="fa fa-phone phone-alt"
+            style={{ color: "grey", fontSize: "25px", margin: "0 10px" }}
+          >
+            <p style={{ display: "none" }}>phone</p>
+          </a>
+          <a
+            href={`sms:+${props.post.phone}`}
+            class="fa fa-comment comment-dots"
+            style={{ color: "grey", fontSize: "25px", margin: "0 10px" }}
+          >
+            <p style={{ display: "none" }}>comment</p>
+          </a>
+          <ShareMenu post={props.post} />
+        </div>
+        <div
+          // className={clsx(classes.expand, {
+          //   [classes.expandOpen]: expanded
+          // })}
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
+          style={{ alignSelf: "flex-end" }}
         >
-          <ExpandMoreIcon />
-        </IconButton>
+          {/* <ExpandMoreIcon /> */}
+          <p
+            class="fa fa-chevron-down
+          chevron"
+            style={{ color: "grey", fontSize: "20px", margin: "5px 0" }}
+          ></p>
+        </div>
+        {/* </div> */}
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>Method:</Typography>
+          <Typography paragraph>Details:</Typography>
           <Typography paragraph>
-            Heat 1/2 cup of the broth in a pot until simmering, add saffron and
-            set aside for 10 minutes.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </Typography>
+          <Typography paragraph>Specs:</Typography>
+          <Typography paragraph>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam
+            aliquam sem et tortor consequat id porta nibh. Amet porttitor eget
+            dolor morbi.
           </Typography>
           <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet
-            over medium-high heat. Add chicken, shrimp and chorizo, and cook,
-            stirring occasionally until lightly browned, 6 to 8 minutes.
-            Transfer shrimp to a large plate and set aside, leaving chicken and
-            chorizo in the pan. Add pimentón, bay leaves, garlic, tomatoes,
-            onion, salt and pepper, and cook, stirring often until thickened and
-            fragrant, about 10 minutes. Add saffron broth and remaining 4 1/2
-            cups chicken broth; bring to a boil.
-          </Typography>
-          <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and
-            peppers, and cook without stirring, until most of the liquid is
-            absorbed, 15 to 18 minutes. Reduce heat to medium-low, add reserved
-            shrimp and mussels, tucking them down into the rice, and cook again
-            without stirring, until mussels have opened and rice is just tender,
-            5 to 7 minutes more. (Discard any mussels that don’t open.)
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Nam
+            aliquam sem et tortor consequat id porta nibh. Amet porttitor eget
+            dolor morbi.
           </Typography>
           <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then
-            serve.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </Typography>
         </CardContent>
       </Collapse>
