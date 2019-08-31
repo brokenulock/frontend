@@ -33,6 +33,7 @@ export default function ShareMenu(props) {
       >
         <Button style={{ display: "none" }}>Open Menu</Button>
       </p>
+      {console.log(props.post)}
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
@@ -43,9 +44,9 @@ export default function ShareMenu(props) {
         <MenuItem onClick={handleClose}>
           {" "}
           <TwitterShareButton
-            title={`Stolen ${props.post.brand} in ${props.post.location}`}
+            title={`Stolen ${props.post.manufacturer} in ${props.post.location}`}
             children={`Please contact ${props.post.username}`}
-            url={`brokenulock.com/posts/${props.post.id}`}
+            url={`brokenulock.com/posts/${props.post.post_id}`}
           >
             <TwitterIcon round={true} width="10" height="10"></TwitterIcon>
           </TwitterShareButton>{" "}
