@@ -77,7 +77,7 @@
   background: white;
 }
 .section:nth-child(odd) {
-  background: #9B9B9B;
+  background: #9b9b9b;
 }
 
 .section:first-child {
@@ -290,14 +290,14 @@
 
 .postContainer {
   width: 100;
-  min-height: 90vh
+  min-height: 95vh;
 }
 .cardsContainer {
   height: auto;
   padding-top: 100px;
   margin: auto;
   /* border:solid; */
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
@@ -305,3 +305,61 @@
   flex-wrap: wrap;
 }
 
+/* Userpage */
+
+.userPage {
+  padding-top:100px;
+  min-height: 95vh;
+  width:700px;
+  margin:auto;
+}
+
+.usersInfo{
+  background:white;
+  min-height:100px;
+  width:800px;
+  display:flex;
+  padding:20px;
+  display:flex;
+  align-items: center;
+  border-radius: 10px;
+}
+.usersPosts{
+  margin-top:50px;
+  background:white;
+  min-height:100px;
+  width:800px;
+  /* padding:40px; */
+  border-radius: 10px;
+  display:flex;
+  flex-wrap:wrap
+}
+.profileImageContainer{
+  border-radius: 100%;
+  width:200px;
+  height:200px;
+  border:solid black 4px;
+  overflow: hidden;
+  /* display:flex; */
+  /* align-content: center; */
+  /* margin: auto; */
+}
+.profileImage{
+  width:100%;
+}
+
+
+.contactInfoContainer{
+
+margin:auto;
+}
+
+.contactInfo{
+display:flex;
+justify-content: space-around;
+align-items: center;
+width:100%;
+}
+.bioContainer{
+width:100%;
+}

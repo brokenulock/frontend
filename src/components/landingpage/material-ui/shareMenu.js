@@ -37,7 +37,6 @@ export default function ShareMenu(props) {
       >
         <Button style={{ display: "none" }}>Open Menu</Button>
       </p>
-      {console.log(props.post)}
       <Menu
         id="simple-menu"
         anchorEl={anchorEl}
