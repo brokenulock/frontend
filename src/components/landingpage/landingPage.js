@@ -9,7 +9,8 @@ import {
   About,
   PostsPage,
   Userpage,
-  LoggedInPage
+  LoggedInPage,
+  Post
 } from "./routes/exportRoutes";
 import axios from "axios";
 
@@ -18,7 +19,7 @@ export default function LandingPage(props) {
 
   useEffect(() => {
     axios
-      .get("https://broken-u-lock.herokuapp.com/api/posts/")
+      .get(`${process.env.REACT_APP_DOMAIN_NAME}api/posts/`)
       .then(res => {
         setAllposts(res.data);
         console.log(res.data);
@@ -54,7 +55,7 @@ export default function LandingPage(props) {
         render={() => <GeoLocation posts={allPosts} />}
       />
 
-      {/* <Route exact path="/posts/:id" component={Userpage} /> */}
+      <Route exact path="/posts/:id" component={Post} />
       <Footer />
     </div>
   );

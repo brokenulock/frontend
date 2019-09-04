@@ -20,7 +20,7 @@ function App() {
             lastSignInTime: user.metadata.lastSignInTime
           };
           axios
-            .post("https://broken-u-lock.herokuapp.com/api/firebase/", send)
+            .post(`${process.env.REACT_APP_DOMAIN_NAME}api/firebase/`, send)
             .then(res => {
               // console.log(res.data);
               setWelcome(res.data.message);
@@ -37,7 +37,7 @@ function App() {
           };
 
           axios
-            .get("https://broken-u-lock.herokuapp.com/api/users/", config)
+            .get(`${process.env.REACT_APP_DOMAIN_NAME}api/users/`, config)
             .then(res => {
               user = res.data
               console.log(res.data);

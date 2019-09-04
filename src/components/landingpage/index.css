@@ -363,3 +363,18 @@ width:100%;
 .bioContainer{
 width:100%;
 }
+
+
+.postPage {
+  padding-top:100px;
+  min-height: 95vh;
+  width:700px;
+  margin:auto;
+}
+.idPostContainer{
+
+}
+
+.postUserHeader{
+  
+}

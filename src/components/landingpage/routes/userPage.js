@@ -10,7 +10,7 @@ export default function UserPage(props) {
   useEffect(() => {
     axios
       .get(
-        `https://broken-u-lock.herokuapp.com/api/users/${props.match.params.id}`
+        `${process.env.REACT_APP_DOMAIN_NAME}api/users/${props.match.params.id}`
       )
       .then(res => {
         console.log(res.data);
