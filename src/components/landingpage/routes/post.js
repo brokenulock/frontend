@@ -58,7 +58,7 @@ export default function Post(props) {
     handleSubmit(values, { setStatus }) {
       axiosWithAuth()
         .post(
-          `http://localhost:4000/api/comments/post/${props.match.params.id}`,
+          `${process.env.REACT_APP_DOMAIN_NAME}api/comments/post/${props.match.params.id}`,
           values
         )
         .then(res => {
