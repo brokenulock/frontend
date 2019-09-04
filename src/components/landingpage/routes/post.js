@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from "react";
-import moment from "moment";
 import axios from "axios";
 import axiosWithAuth from "../../axiosConfig";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import PostTopContent from "./postTopContent";
+import PostComments from './postComments'
 
 export default function Post(props) {
   const [post, setPost] = useState(false);
   const [button, setbutton] = useState(false);
   const [comment, setComment] = useState(false);
 
+  const postId = props.match.params.id
+  const url = `${process.env.REACT_APP_DOMAIN_NAME}api/posts/${postId}`;
+
   useEffect(() => {
     axios
-      .get(
-        `${process.env.REACT_APP_DOMAIN_NAME}api/posts/${props.match.params.id}`
-      )
+      .get(url)
       .then(res => {
         console.log(res.data);
         setPost(res.data);
@@ -26,7 +27,6 @@ export default function Post(props) {
         console.log(err.response);
       });
   }, [button]);
-
   const PostForm = ({ errors, touched, values, status }) => {
     useEffect(() => {
       if (status) {
@@ -58,7 +58,7 @@ export default function Post(props) {
     handleSubmit(values, { setStatus }) {
       axiosWithAuth()
         .post(
-          `${process.env.REACT_APP_DOMAIN_NAME}api/comments/post/${props.match.params.id}`,
+          `${process.env.REACT_APP_DOMAIN_NAME}api/comments/post/${postId}`,
           values
         )
         .then(res => {
@@ -79,19 +79,8 @@ export default function Post(props) {
           background: "white"
         }}
       >
-        {post.comments && post.comments.length > 0 ? (
-          post.comments.map(comment => {
-            return (
-              <div style={{ display: "flex", borderBottom: "solid" }}>
-                {comment.username}
-                <h3>{comment.comment}</h3>
-              </div>
-            );
-          })
-        ) : (
-          <div>no posts</div>
-        )}
-        <FormikPostForm id={props.match.params.id} />
+        <PostComments postId={postId} commentAdded={button}/>
+        <FormikPostForm id={postId} />
       </div>
     </div>
   );
