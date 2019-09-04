@@ -2,15 +2,8 @@ import React, { useState, useEffect } from "react";
 import Navigation from "./navigation";
 import Footer from "./footer";
 import "./index.css";
-import GeoLocation from "./googleMap/geoLocation";
 import { Route } from "react-router-dom";
-import {
-  Home,
-  About,
-  PostsPage,
-  Userpage,
-  LoggedInPage
-} from "./routes/exportRoutes";
+import { Home, About, PostsPage, Userpage } from "./routes/exportRoutes";
 import axios from "axios";
 
 export default function LandingPage(props) {
@@ -29,6 +22,7 @@ export default function LandingPage(props) {
   return (
     <div className="landingPage">
       <Navigation signOut={props.signOut} signedin={props.signedin} />
+
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
       {/* <Route exact path="/posts" component={PostsPage} /> */}
@@ -36,25 +30,9 @@ export default function LandingPage(props) {
         exact
         path="/posts"
         render={() => <PostsPage posts={allPosts} />}
+        
       />
-      <Route
-        exact
-        path="/user"
-        render={() => <LoggedInPage userData={props.userData} />}
-      />
-      <Route exact path="/user/:id" component={Userpage} />
-      {/* <Route
-        exact
-        path="/user/:id"
-        render={() => <Userpage userData={props.userData} />} */}
-      />
-      <Route
-        exact
-        path="/map"
-        render={() => <GeoLocation posts={allPosts} />}
-      />
-
-      {/* <Route exact path="/posts/:id" component={Userpage} /> */}
+      <Route exact path="/userpage" component={Userpage} />
       <Footer />
     </div>
   );
