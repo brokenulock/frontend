@@ -10,12 +10,12 @@ export default function PostComments(props) {
   }, [props.commentAdded]);
 
   useEffect(() => {
-    if (allComments && allComments.length > 0) {
+    // if (allComments && allComments.length > 0) {
       setInterval(() => {
         call("comments updated");
-      }, 10000);
-    }
-  }, [allComments]);
+      }, 2000);
+    // }
+  }, []);
 
   const call = event => {
     axios
