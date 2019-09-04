@@ -4,14 +4,14 @@ import firebase from "firebase";
 import axios from "axios";
 
 function App() {
-  const [firebaseLogin, setFirebaseLogin] = useState({ isSignedIn: false });
+  const [userData, setUserData] = useState({ isSignedIn: false });
   const [signedIn, setSignedin] = useState(false);
-  const [userData, setUserData] = useState(false);
   const [welcome, setWelcome] = useState();
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
-      setFirebaseLogin({ isSignedIn: !!user });
+      setUserData({ isSignedIn: !!user });
+
       if (!!user) {
         setSignedin(true);
         if (!localStorage.getItem("token")) {
@@ -20,28 +20,11 @@ function App() {
             lastSignInTime: user.metadata.lastSignInTime
           };
           axios
-            .post("https://broken-u-lock.herokuapp.com/api/firebase/", send)
+            .post("http://localhost:4000/api/firebase/", send)
             .then(res => {
-              // console.log(res.data);
+              console.log(res.data);
               setWelcome(res.data.message);
               localStorage.setItem("token", res.data.token);
-            })
-            .catch(err => {
-              console.log(err);
-            });
-        } else if (localStorage.getItem("token")) {
-          const config = {
-            headers: {
-              authorization: localStorage.getItem("token")
-            }
-          };
-
-          axios
-            .get("https://broken-u-lock.herokuapp.com/api/users/", config)
-            .then(res => {
-              user = res.data
-              console.log(res.data);
-              setUserData(user);
             })
             .catch(err => {
               console.log(err.response);
@@ -59,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <LandingPage signOut={signOut} signedin={signedIn} userData={userData} firebaseLogin={firebaseLogin} />
+      <LandingPage signOut={signOut} signedin={signedIn} />
       <div className="welcome">
         <h5>{welcome}</h5>
       </div>

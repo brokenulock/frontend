@@ -1,10 +1,9 @@
 import React from "react";
 import Logo from "../../bulfmlimg/navlogo.png";
-// import { Link as Scroll } from "react-scroll";
+import { Link as Scroll } from "react-scroll";
 import TabletMenu from "./material-ui/materialUI";
 import LoginForm from "./material-ui/loginForm";
 import { Link } from "react-router-dom";
-import {} from "./routes/exportRoutes";
 
 export default function Navigation(props) {
   return (
@@ -25,13 +24,13 @@ export default function Navigation(props) {
       {/* </Scroll> */}
       <TabletMenu signOut={props.signOut} signedin={props.signedin} />
       <nav className="navigation">
-      <Link
-            to={`/map/`}
+        <a
+          href="https://reactlocation.netlify.com/"
           className="footerLink"
           style={{ marginRight: "20px" }}
         >
-          Map
-        </Link>
+          Prototype Map
+        </a>
         <a
           href="https://documenter.getpostman.com/view/7133880/SVfMUAdJ?version=latest"
           className="footerLink"
@@ -53,18 +52,13 @@ export default function Navigation(props) {
         >
           Seeded Data
         </Link>
-        {localStorage.getItem("token") || props.signedin ? (
-          <Link
-            to={`/user/`}
-            className="footerLink"
-            style={{ marginRight: "15px" }}
-          >
-            Profile
-          </Link>
-        ) : (
-          ""
-        )}
-
+        {/* <Link
+          to="/UserPage"
+          className="footerLink"
+          style={{ marginRight: "15px" }}
+        >
+          User
+        </Link> */}
         <LoginForm
           signOut={props.signOut}
           signedin={props.signedin}

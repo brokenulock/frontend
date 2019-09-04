@@ -30,7 +30,7 @@ export default function LoginForm(props) {
         style={{ marginRight: "15px" }}
         onClick={!props.signedin ? handleClickOpen : props.signOut}
       >
-        {localStorage.getItem("token") || props.signedin ? "Logout" : "Login"}
+        {props.signedin ? "Logout" : "Login"}
       </p>
       <Dialog
         open={open}
