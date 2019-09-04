@@ -38,9 +38,12 @@ export default function TabletMenu(props) {
       >
         <MenuItem onClick={handleClose}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <a href="https://reactlocation.netlify.com/" className="menuFont">
-              Prototype Map
-            </a>
+            <Link
+              to={`/map/`}
+              className="menuFont"
+            >
+              Map
+            </Link>
             <a
               href="https://documenter.getpostman.com/view/7133880/SVfMUAdJ?version=latest"
               className="menuFont"
