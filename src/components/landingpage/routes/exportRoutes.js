@@ -4,4 +4,5 @@ import Userpage from "./userPage";
 import Home from "../home";
 import LoggedInPage from './loggedInUser'
 import Post from './post'
-export { About, PostsPage, Userpage, Home,LoggedInPage,Post };
+import PostEntry from './postEntry'
+export { About, PostsPage, Userpage, Home,LoggedInPage,Post,PostEntry };

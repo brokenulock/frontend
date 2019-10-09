@@ -27,11 +27,13 @@ export default function Post(props) {
         console.log(err.response);
       });
   }, [button]);
+  
   const PostForm = ({ errors, touched, values, status }) => {
     useEffect(() => {
       if (status) {
         setComment([comment, status]);
       }
+      console.log(values)
     }, [comment]);
 
     return (

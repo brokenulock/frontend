@@ -10,7 +10,8 @@ import {
   PostsPage,
   Userpage,
   LoggedInPage,
-  Post
+  Post,
+  PostEntry
 } from "./routes/exportRoutes";
 import axios from "axios";
 
@@ -38,6 +39,7 @@ export default function LandingPage(props) {
         path="/posts"
         render={() => <PostsPage posts={allPosts} />}
       />
+      <Route exact path="/new-post" component={PostEntry} />
       <Route
         exact
         path="/user"
@@ -47,14 +49,13 @@ export default function LandingPage(props) {
       {/* <Route
         exact
         path="/user/:id"
-        render={() => <Userpage userData={props.userData} />} */}
-      />
+        render={() => <Userpage userData={props.userData} />} />*/}
+      
       <Route
         exact
         path="/map"
         render={() => <GeoLocation posts={allPosts} />}
       />
-
       <Route exact path="/posts/:id" component={Post} />
       <Footer />
     </div>

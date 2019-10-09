@@ -378,3 +378,15 @@ width:100%;
 .postUserHeader{
   
 }
+
+
+/* New post page */
+
+.postFormPage {
+  width: 100;
+  min-height: 95vh;
+}
+.formContainer{
+  padding-top: 100px;
+  background:white;
+}

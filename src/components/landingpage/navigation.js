@@ -52,6 +52,13 @@ export default function Navigation(props) {
         >
           Seeded Data
         </Link>
+        <Link
+          to="/new-post"
+          className="footerLink"
+          style={{ marginRight: "15px" }}
+        >
+          New Post
+        </Link>
         {localStorage.getItem("token") || props.signedin ? (
           <Link
             to={`/user/`}
