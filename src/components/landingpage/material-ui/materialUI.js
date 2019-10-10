@@ -38,10 +38,7 @@ export default function TabletMenu(props) {
       >
         <MenuItem onClick={handleClose}>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <Link
-              to={`/map/`}
-              className="menuFont"
-            >
+            <Link to={`/map/`} className="menuFont">
               Map
             </Link>
             <a
@@ -56,6 +53,26 @@ export default function TabletMenu(props) {
             <Link to="/posts" className="menuFont">
               Seeded Data
             </Link>
+            {localStorage.getItem("token") || props.signedin ? (
+              <>
+                <Link
+                  to="/new-post"
+                  className="menuFont"
+                  style={{ marginRight: "15px" }}
+                >
+                  New Post
+                </Link>
+                <Link
+                  to={`/user/`}
+                  className="menuFont"
+                  style={{ marginRight: "15px" }}
+                >
+                  Profile
+                </Link>
+              </>
+            ) : (
+              ""
+            )}
             <MobileLoginForm
               signOut={props.signOut}
               signedin={props.signedin}

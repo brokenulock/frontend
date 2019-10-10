@@ -1,9 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
 import axiosWithAuth from "../../axiosConfig";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
+import { GoogleComponent } from "react-google-location";
 
 export default function PostEntry(props) {
+  const [address, setAddress] = useState({ place: null, lat: null, lng: null });
+  const [location, setLocation] = useState(false);
+
+  useEffect(() => {
+    locationInput();
+  }, [location]);
+
+  const locationInput = () => {
+    if (location === false) {
+      return (
+        <GoogleComponent
+          apiKey={process.env.REACT_APP_GOOGLE_KEY}
+          language={"en"}
+          coordinates={true}
+          locationBoxStyle={"custom-style-location"}
+          locationListStyle={"custom-style-list"}
+          onChange={event => {
+            if (event.coordinates) {
+              console.log(event.coordinates);
+              setLocation(true);
+              setAddress({
+                place: event.place,
+                lat: event.coordinates.lat,
+                lng: event.coordinates.lng
+              });
+            }
+          }}
+        />
+      );
+    } else if (location === true) {
+      return (
+        <div>
+          {console.log(address)}
+          <p>
+            {address.place}{" "}
+            <button
+              onClick={() => {
+                setLocation(false);
+              }}
+            >
+              Clear
+            </button>
+          </p>
+        </div>
+      );
+    }
+  };
+
   const PostForm = ({ errors, touched, values, status }) => {
     return (
       <div>
@@ -11,6 +61,27 @@ export default function PostEntry(props) {
           {touched.description && errors.description && (
             <p>{errors.description}</p>
           )}
+          {locationInput()}
+          {/* <GoogleComponent
+            apiKey={process.env.REACT_APP_GOOGLE_KEY}
+            language={"en"}
+            coordinates={true}
+            locationBoxStyle={"custom-style-location"}
+            locationListStyle={"custom-style-list"}
+            onSubmit={e => {
+              setAddress({ place: e.place });
+              console.log(e);
+            }}
+            onChange={ event => {
+              // setAddress({place: event.place})
+                // localStorage.setItem("start", JSON.stringify(event));
+                console.log(event);
+                // if (event.coordinates) {
+                    // event.preventDefault()
+            //   setAddress({ place: event });
+                // }
+            }}
+          /> */}
           <Field
             type="text"
             name="description"
@@ -18,7 +89,11 @@ export default function PostEntry(props) {
           />
           {touched.image && errors.image && <p>{errors.image}</p>}
           <Field type="text" name="image" placeholder="Enter image" />
-          <Field type="text" name="manufacturer" placeholder="Enter manufacturer" />
+          <Field
+            type="text"
+            name="manufacturer"
+            placeholder="Enter manufacturer"
+          />
           <Field type="text" name="model" placeholder="Enter model" />
           <Field type="text" name="year" placeholder="Enter year" />
           <Field
@@ -26,11 +101,7 @@ export default function PostEntry(props) {
             name="serial_number"
             placeholder="Enter serial number"
           />
-                    <Field
-            type="text"
-            name="size"
-            placeholder="Enter size"
-          />
+          <Field type="text" name="size" placeholder="Enter size" />
           <Field
             type="date"
             name="date_stolen"
@@ -41,7 +112,7 @@ export default function PostEntry(props) {
             name="time_stolen"
             placeholder="Enter time stolen"
           />
-          <Field type="text" name="location" placeholder="Enter location" />
+          {/* <Field type="text" name="location" placeholder="Enter location" /> */}
           <Field type="text" name="reward" placeholder="Enter reward" />
 
           <button type="submit">send</button>
@@ -61,7 +132,7 @@ export default function PostEntry(props) {
       serial_number,
       date_stolen,
       time_stolen,
-      location,
+      //   location,
       reward
     }) {
       return {
@@ -74,7 +145,9 @@ export default function PostEntry(props) {
         serial_number: serial_number || null,
         date_stolen: date_stolen || null,
         time_stolen: time_stolen || null,
-        location: location || null,
+        location: address.place || null,
+        latitude: address.lat,
+        longitude: address.lng,
         reward: reward || null
       };
     },

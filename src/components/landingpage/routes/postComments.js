@@ -51,7 +51,7 @@ export default function PostComments(props) {
           );
         })
       ) : (
-        <div>no posts</div>
+        <div>Be the first to comment</div>
       )}
     </div>
   );

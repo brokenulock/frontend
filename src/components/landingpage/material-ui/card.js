@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// import clsx from "clsx";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -55,25 +54,24 @@ export default function PostCard(props) {
         title="View User"
         style={{ color: "black" }}
       >
-        <CardHeader
-          avatar={
-            <div
-              aria-label="recipe"
-              className={classes.avatar}
-              style={{ borderRadius: "100%", overflow: "hidden" }}
-            >
-              <img src={props.post.avatar} alt="avatar" />
-            </div>
-          }
-          // action={
-          //   <IconButton aria-label="settings">
-          //     <MoreVertIcon />
-          //   </IconButton>
-          // }
-          title={<h5>{props.post.username}</h5>}
-          subheader={<p>{props.post.location}</p>}
-          href={`/user/${props.post.user_id}`}
-        />
+        {!props.infoWindow ? (
+          <CardHeader
+            avatar={
+              <div
+                aria-label="recipe"
+                className={classes.avatar}
+                style={{ borderRadius: "100%", overflow: "hidden" }}
+              >
+                <img src={props.post.avatar} alt="avatar" />
+              </div>
+            }
+            title={<h5>{props.post.username}</h5>}
+            subheader={<p>{props.post.location}</p>}
+            href={`/user/${props.post.user_id}`}
+          />
+        ) : (
+          ""
+        )}
       </Link>
       <Link to={`/posts/${props.post.post_id}`} title="View Full Post">
         <CardMedia className={classes.media} image={props.post.image} />
@@ -88,15 +86,16 @@ export default function PostCard(props) {
           </Typography>
         </CardContent>
       </Link>
-      <CardActions
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-around",
-          width: "100%"
-        }}
-      >
-        {/* <div
+      {!props.infoWindow ? (
+        <CardActions
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            width: "100%"
+          }}
+        >
+          {/* <div
           style={{
             display: "flex",
             flexDirection: "row",
@@ -104,85 +103,88 @@ export default function PostCard(props) {
             width:"100%"
           }}
         > */}
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <a
-            href={`mailto:${props.post.email}`}
-            class="fa fa-envelope envelope"
-            style={{ color: "grey", fontSize: "25px", margin: "0 10px" }}
-            title={`Email ${props.post.username}`}
-          >
-            <p style={{ display: "none" }}>envelope</p>
-          </a>
-          <a
-            href={`tel:${props.post.phone}`}
-            class="fa fa-phone phone-alt"
-            style={{ color: "grey", fontSize: "25px", margin: "0 10px" }}
-            title={`Call ${props.post.username}`}
-          >
-            <p style={{ display: "none" }}>phone</p>
-          </a>
-          <a
-            href={`sms:+${props.post.phone}`}
-            class="fa fa-comment comment-dots"
-            style={{ color: "grey", fontSize: "25px", margin: "0 10px" }}
-            title={`Text ${props.post.username}`}
-          >
-            <p style={{ display: "none" }}>comment</p>
-          </a>
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <a
+              href={`mailto:${props.post.email}`}
+              class="fa fa-envelope envelope"
+              style={{ color: "grey", fontSize: "25px", margin: "0 10px" }}
+              title={`Email ${props.post.username}`}
+            >
+              <p style={{ display: "none" }}>envelope</p>
+            </a>
+            <a
+              href={`tel:${props.post.phone}`}
+              class="fa fa-phone phone-alt"
+              style={{ color: "grey", fontSize: "25px", margin: "0 10px" }}
+              title={`Call ${props.post.username}`}
+            >
+              <p style={{ display: "none" }}>phone</p>
+            </a>
+            <a
+              href={`sms:+${props.post.phone}`}
+              class="fa fa-comment comment-dots"
+              style={{ color: "grey", fontSize: "25px", margin: "0 10px" }}
+              title={`Text ${props.post.username}`}
+            >
+              <p style={{ display: "none" }}>comment</p>
+            </a>
+            <button
+              style={{
+                background: "none",
+                padding: "0",
+                margin: "0",
+                border: "none"
+              }}
+              title={`Share ${props.post.username}'s post`}
+            >
+              <ShareMenu post={props.post} />
+            </button>
+          </div>
+
           <button
+            // className={clsx(classes.expand, {
+            //   [classes.expandOpen]: expanded
+            // })}
+            onClick={handleExpandClick}
+            aria-expanded={expanded}
+            aria-label="show more"
             style={{
-              background: "none",
-              padding: "0",
-              margin: "0",
+              alignSelf: "flex-end",
+              background: "#33B8F3",
+              color: "white",
+              // padding: "0 4px",
+              // margin: "0",
               border: "none"
             }}
-            title={`Share ${props.post.username}'s post`}
+            title="Show More"
           >
-            <ShareMenu post={props.post} />
+            {/* <ExpandMoreIcon /> */}
+
+            {!expandedButton ? (
+              <p
+                class="fa fa-chevron-down chevron"
+                style={{
+                  fontSize: "20px",
+                  margin: "5px 0",
+                  color: "white"
+                }}
+              ></p>
+            ) : (
+              <p
+                class="fa fa-times times"
+                style={{
+                  fontSize: "20px",
+                  margin: "5px 0",
+                  color: "white"
+                }}
+              ></p>
+            )}
           </button>
-        </div>
-
-        <button
-          // className={clsx(classes.expand, {
-          //   [classes.expandOpen]: expanded
-          // })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-          style={{
-            alignSelf: "flex-end",
-            background: "#33B8F3",
-            color: "white",
-            // padding: "0 4px",
-            // margin: "0",
-            border: "none"
-          }}
-          title="Show More"
-        >
-          {/* <ExpandMoreIcon /> */}
-
-          {!expandedButton ? (
-            <p
-              class="fa fa-chevron-down chevron"
-              style={{
-                fontSize: "20px",
-                margin: "5px 0",
-                color: "white"
-              }}
-            ></p>
-          ) : (
-            <p
-              class="fa fa-times times"
-              style={{
-                fontSize: "20px",
-                margin: "5px 0",
-                color: "white"
-              }}
-            ></p>
-          )}
-        </button>
-        {/* </div> */}
-      </CardActions>
+          {/* </div> */}
+        </CardActions>
+      ) : (
+        ""
+      )}
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Details:</Typography>

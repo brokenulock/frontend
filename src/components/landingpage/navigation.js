@@ -24,8 +24,8 @@ export default function Navigation(props) {
       {/* </Scroll> */}
       <TabletMenu signOut={props.signOut} signedin={props.signedin} />
       <nav className="navigation">
-      <Link
-            to={`/map/`}
+        <Link
+          to={`/map/`}
           className="footerLink"
           style={{ marginRight: "20px" }}
         >
@@ -52,21 +52,24 @@ export default function Navigation(props) {
         >
           Seeded Data
         </Link>
-        <Link
-          to="/new-post"
-          className="footerLink"
-          style={{ marginRight: "15px" }}
-        >
-          New Post
-        </Link>
+
         {localStorage.getItem("token") || props.signedin ? (
-          <Link
-            to={`/user/`}
-            className="footerLink"
-            style={{ marginRight: "15px" }}
-          >
-            Profile
-          </Link>
+          <>
+            <Link
+              to="/new-post"
+              className="footerLink"
+              style={{ marginRight: "15px" }}
+            >
+              New Post
+            </Link>
+            <Link
+              to={`/user/`}
+              className="footerLink"
+              style={{ marginRight: "15px" }}
+            >
+              Profile
+            </Link>
+          </>
         ) : (
           ""
         )}

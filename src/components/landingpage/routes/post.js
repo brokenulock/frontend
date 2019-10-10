@@ -5,6 +5,7 @@ import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import PostTopContent from "./postTopContent";
 import PostComments from './postComments'
+import PostMap from '../googleMap/postMap'
 
 export default function Post(props) {
   const [post, setPost] = useState(false);
@@ -83,6 +84,7 @@ export default function Post(props) {
       >
         <PostComments postId={postId} commentAdded={button}/>
         <FormikPostForm id={postId} />
+        {/* <PostMap/> */}
       </div>
     </div>
   );
