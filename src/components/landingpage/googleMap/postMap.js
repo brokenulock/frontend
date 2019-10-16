@@ -1,97 +1,59 @@
-import React, { useState } from "react";
-import {
-  GoogleMap,
-  withScriptjs,
-  withGoogleMap,
-  Marker,
-  InfoWindow
-} from "react-google-maps";
-// import lightmode from "./mapstyles/lightMode";
-// import darkmode from "./mapstyles/darkMode";
+import React, { useState, useEffect } from "react";
+import ReactMapGL, { Marker } from "react-map-gl";
 
-function Map(props) {
-  // const [selectedMarker, setSelectedMarker] = useState(null);
+export default function PostMap(props) {
+  const [viewport, setViewport] = useState();
+  const [locations, setLocations] = useState();
 
-
-  // const mapMode = () => {
-  //   if (localStorage.getItem("mapmode") === "darkmode") {
-  //     return darkmode;
-  //   }
-  //   if (localStorage.getItem("mapmode") === "lightmode") {
-  //     return lightmode;
-  //   } else {
-  //     return lightmode;
-  //   }
-  // };
+  useEffect(() => {
+    setViewport({
+      width: 700,
+      height: 400,
+      latitude: props.post.latitude,
+      longitude: props.post.longitude,
+      zoom: 13
+    });
+    if (
+      props.post.all_seen_locations &&
+      props.post.all_seen_locations.length > 0
+    ) {
+      setLocations(props.post.all_seen_locations);
+    }
+  }, [props.post.latitude && props.post.longitude]);
 
   return (
-    <div>
-      <GoogleMap
-        defaultZoom={14}
-        defaultCenter={{ lat: props.lat, lng: props.lng }}
-        // defaultOptions={{ styles: mapMode() }}
-      />
-      {/* {props.posts &&
-        props.posts.map((stolen) => {
-          // console.log(ulock);
+    <ReactMapGL
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_KEY}
+      {...viewport}
+      onViewportChange={newViewport => setViewport({ ...newViewport })}
+    >
+      <Marker
+        latitude={props.post.latitude}
+        longitude={props.post.longitude}
+        offsetLeft={-20}
+        offsetTop={-10}
+      >
+        <img
+          src="https://github.com/fixmylifedesigns/googlemaps-geolocation/blob/master/src/components/ulock.png?raw=true"
+          style={{ height: "40px" }}
+        />
+      </Marker>
+      {locations &&
+        locations.map(lastSeen => {
           return (
             <Marker
-              // key={ulock.id}
-              position={{
-                lat: stolen.latitude,
-                lng: stolen.longitude
-              }}
-              // icon={{
-              //   url: stolen,
-              //   scaledSize: new window.google.maps.Size(45, 60)
-              // }}
-              onClick={() => {
-                console.log(stolen);
-                setSelectedMarker(stolen);
-              }}
-            />
+              latitude={lastSeen.last_latitude}
+              longitude={lastSeen.last_longitude}
+              offsetLeft={-20}
+              offsetTop={-10}
+            >
+              <img
+                src="https://github.com/fixmylifedesigns/googlemaps-geolocation/blob/master/src/components/ulock.png?raw=true"
+                style={{ height: "40px" }}
+              />
+            </Marker>
           );
         })}
-      {selectedMarker && (
-        <InfoWindow
-          position={{
-            lat: selectedMarker.latitude,
-            lng: selectedMarker.longitude
-          }}
-          onCloseClick={() => {
-            setSelectedMarker(null);
-          }}
-        >
-          <div>
-          <PostCard post={selectedMarker} />
-          </div>
-        </InfoWindow>
-      )} */}
-    </div>
-  );
-}
-
-const MapWrapped = withScriptjs(withGoogleMap(Map));
-
-export default function PostMap() {
-  return (
-    <div
-      style={{
-        margin:"auto",
-        marginTop: "30px",
-        marginBottom: "30px",
-        overflow: "hidden",
-        width: "100%",
-        height: "400px",
-        // borderRadius: "30px"
-      }}
-    >
-      <MapWrapped
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `100%` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-      />
-    </div>
+    </ReactMapGL>
   );
 }

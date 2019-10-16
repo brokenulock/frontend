@@ -25,31 +25,36 @@ function App() {
               // console.log(res.data);
               setWelcome(res.data.message);
               localStorage.setItem("token", res.data.token);
+              authRequest(user)
             })
             .catch(err => {
               console.log(err);
             });
         } else if (localStorage.getItem("token")) {
-          const config = {
-            headers: {
-              authorization: localStorage.getItem("token")
-            }
-          };
-
-          axios
-            .get(`${process.env.REACT_APP_DOMAIN_NAME}api/users/`, config)
-            .then(res => {
-              user = res.data
-              console.log(res.data);
-              setUserData(user);
-            })
-            .catch(err => {
-              console.log(err.response);
-            });
+          authRequest(user)
         }
       }
     });
   }, [signedIn]);
+
+const authRequest = user => {
+  const config = {
+    headers: {
+      authorization: localStorage.getItem("token")
+    }
+  };
+
+  axios
+    .get(`${process.env.REACT_APP_DOMAIN_NAME}api/users/`, config)
+    .then(res => {
+      user = res.data
+      console.log(res.data);
+      setUserData(user);
+    })
+    .catch(err => {
+      console.log(err.response);
+    });
+}
 
   const signOut = () => {
     firebase.auth().signOut();

@@ -56,3 +56,7 @@ table {
 	top:80px;
 	font-weight: bold;
 }
+button {
+	background:grey;
+	border:none;
+}

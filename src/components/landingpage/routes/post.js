@@ -4,15 +4,15 @@ import axiosWithAuth from "../../axiosConfig";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import PostTopContent from "./postTopContent";
-import PostComments from './postComments'
-import PostMap from '../googleMap/postMap'
+import PostComments from "./postComments";
+import PostMap from "../googleMap/postMap";
 
 export default function Post(props) {
   const [post, setPost] = useState(false);
   const [button, setbutton] = useState(false);
   const [comment, setComment] = useState(false);
 
-  const postId = props.match.params.id
+  const postId = props.match.params.id;
   const url = `${process.env.REACT_APP_DOMAIN_NAME}api/posts/${postId}`;
 
   useEffect(() => {
@@ -28,13 +28,13 @@ export default function Post(props) {
         console.log(err.response);
       });
   }, [button]);
-  
+
   const PostForm = ({ errors, touched, values, status }) => {
     useEffect(() => {
       if (status) {
         setComment([comment, status]);
       }
-      console.log(values)
+      console.log(values);
     }, [comment]);
 
     return (
@@ -82,9 +82,9 @@ export default function Post(props) {
           background: "white"
         }}
       >
-        <PostComments postId={postId} commentAdded={button}/>
+        <PostComments postId={postId} commentAdded={button} />
         <FormikPostForm id={postId} />
-        {/* <PostMap/> */}
+        {post.location ? <PostMap post={post} /> : ""}
       </div>
     </div>
   );

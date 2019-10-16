@@ -33,7 +33,7 @@ function Map(props) {
         defaultCenter={{ lat: props.lat, lng: props.lng }}
         defaultOptions={{ styles: mapMode() }}
       />
-      <Marker
+      {/* <Marker
         key="location"
         position={{
           lat: props.lat,
@@ -43,10 +43,9 @@ function Map(props) {
         //   url: ReactLogo,
         //   scaledSize: new window.google.maps.Size(45, 60)
         // }}
-      />
+      /> */}
       {props.posts &&
         props.posts.map((stolen) => {
-          // console.log(ulock);
           return (
             <Marker
               // key={ulock.id}
@@ -54,10 +53,10 @@ function Map(props) {
                 lat: stolen.latitude,
                 lng: stolen.longitude
               }}
-              // icon={{
-              //   url: stolen,
-              //   scaledSize: new window.google.maps.Size(45, 60)
-              // }}
+              icon={{
+                url: "https://github.com/fixmylifedesigns/googlemaps-geolocation/blob/master/src/components/ulock.png?raw=true",
+                scaledSize: new window.google.maps.Size(30, 40)
+              }}
               onClick={() => {
                 console.log(stolen);
                 setSelectedMarker(stolen);
@@ -104,19 +103,19 @@ export default function TestMap(props) {
     <div
       style={{
         margin:"auto",
-        marginTop: "30px",
+        // marginTop: "30px",
         marginBottom: "30px",
         overflow: "hidden",
         width: "100vw",
-        height: "80vh",
+        height: "90vh",
         // borderRadius: "30px"
       }}
     >
-      <div style={{ marginTop: "30px" }}></div>
+      <div style={{ marginTop: "60px" }}></div>
       <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${process.env.REACT_APP_GOOGLE_KEY}`}
         loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `100%` }} />}
+        containerElement={<div style={{ height: `90%` }} />}
         mapElement={<div style={{ height: `100%` }} />}
         lat={props.lat}
         lng={props.lng}
@@ -125,7 +124,6 @@ export default function TestMap(props) {
         marker={props.marker}
         posts={props.posts}
       />
-
       <MenuButton handleMapMode={handleMapMode} />
       
     </div>

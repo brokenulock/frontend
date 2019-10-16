@@ -308,85 +308,112 @@
 /* Userpage */
 
 .userPage {
-  padding-top:100px;
+  padding-top: 100px;
   min-height: 95vh;
-  width:700px;
-  margin:auto;
+  width: 700px;
+  margin: auto;
 }
 
-.usersInfo{
-  background:white;
-  min-height:100px;
-  width:800px;
-  display:flex;
-  padding:20px;
-  display:flex;
+.usersInfo {
+  background: white;
+  min-height: 100px;
+  width: 800px;
+  display: flex;
+  padding: 20px;
+  display: flex;
   align-items: center;
   border-radius: 10px;
 }
-.usersPosts{
-  margin-top:50px;
-  background:white;
-  min-height:100px;
-  width:800px;
+.usersPosts {
+  margin-top: 50px;
+  background: white;
+  min-height: 100px;
+  width: 800px;
   /* padding:40px; */
   border-radius: 10px;
-  display:flex;
-  flex-wrap:wrap
+  display: flex;
+  flex-wrap: wrap;
 }
-.profileImageContainer{
+.profileImageContainer {
   border-radius: 100%;
-  width:200px;
-  height:200px;
-  border:solid black 4px;
+  width: 200px;
+  height: 200px;
+  border: solid black 4px;
   overflow: hidden;
   /* display:flex; */
   /* align-content: center; */
   /* margin: auto; */
 }
-.profileImage{
-  width:100%;
+.profileImage {
+  width: 100%;
 }
 
-
-.contactInfoContainer{
-
-margin:auto;
+.contactInfoContainer {
+  margin: auto;
 }
 
-.contactInfo{
-display:flex;
-justify-content: space-around;
-align-items: center;
-width:100%;
+.contactInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
-.bioContainer{
-width:100%;
+.bioContainer {
+  width: 100%;
 }
-
 
 .postPage {
-  padding-top:100px;
+  padding-top: 100px;
   min-height: 95vh;
-  width:700px;
-  margin:auto;
+  width: 700px;
+  margin: auto;
 }
-.idPostContainer{
-
-}
-
-.postUserHeader{
-  
+.idPostContainer {
 }
 
+.postUserHeader {
+}
 
 /* New post page */
 
 .postFormPage {
-  width: 100;
-  min-height: 95vh;
+  width: 400px;
+  min-height: 90vh;
+  margin:auto;
+  padding-top:70px;
+  display: flex
 }
-.formContainer{
-  padding-top: 100px;
-  background:white;
+.formContainer {
+  align-items: center;
+  align-content: center;
+  background: white;
+  margin:auto;
+  display: flex;
+  flex-direction: column;
+  padding:10px;
+  padding-top: 30px;
+  border-radius: 20px;
+}
+.newPostHeader p{
+  /* margin: auto; */
+  /* align-content: center; */
+  text-align: center;
+}
+.newPostForm{
+  display:flex;
+  flex-direction: column;
+
+}
+.inputField{
+  width:350px;
+}
+.formButton{
+  margin:auto;
+}
+.progress {
+  margin: auto;
+  align-content: center;
+  width:80%;
+  max-width:400px;
+  height:40px;
 }
