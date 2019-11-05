@@ -61,7 +61,7 @@ export default function UserPage(props) {
           <div className="bioContainer">
             <p>Bio: {user.bio ? user.bio : "N/A"}</p>
           </div>
-        </div>
+        </div>  
       </div>
       <div className="usersPosts">
         {user.posts && user.posts.length > 0 ? (
@@ -72,6 +72,7 @@ export default function UserPage(props) {
           <div>no posts</div>
         )}
       </div>
+    
     </div>
   );
 }

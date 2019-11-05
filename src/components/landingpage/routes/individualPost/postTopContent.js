@@ -50,7 +50,7 @@ export default function PostTopContent(props) {
           </div>
         </div>
       </div>
-      <img src={props.post.image} alt="" />
+      {/* <img src={props.post.image} alt="" /> */}
     </div>
   );
 }

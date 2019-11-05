@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { storage } from "../../firebaseConfig";
-import axiosWithAuth from "../../axiosConfig";
+import { storage } from "../../configurations/firebaseConfig";
+import axiosWithAuth from "../../configurations/axiosConfig";
 import { Form, Field, withFormik } from "formik";
 import "date-fns";
 import DateFnsUtils from "@date-io/date-fns";
@@ -30,19 +30,19 @@ export default function PostEntry(props) {
     ":" +
     selectedDate.getSeconds();
 
-  useEffect(() => {
-    console.log(image);
-    console.log(url);
-    console.log(error);
-    console.log(selectedDate.toISOString());
-    console.log(
-      selectedDate.getHours() +
-        ":" +
-        selectedDate.getMinutes() +
-        ":" +
-        selectedDate.getSeconds()
-    );
-  }, [selectedDate]);
+  // useEffect(() => {
+  //   console.log(image);
+  //   console.log(url);
+  //   console.log(error);
+  //   console.log(selectedDate.toISOString());
+  //   console.log(
+  //     selectedDate.getHours() +
+  //       ":" +
+  //       selectedDate.getMinutes() +
+  //       ":" +
+  //       selectedDate.getSeconds()
+  //   );
+  // }, [selectedDate]);
 
   const handleChange = e => {
     e.preventDefault();
@@ -213,6 +213,7 @@ export default function PostEntry(props) {
       }
     }
   })(PostForm);
+  
   return (
     <div className="postFormPage">
       <div className="formContainer">

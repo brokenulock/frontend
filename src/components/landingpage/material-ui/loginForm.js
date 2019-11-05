@@ -5,7 +5,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { uiConfig } from "../../firebaseConfig";
+import { uiConfig } from "../../configurations/firebaseConfig";
 // import axios from "axios";
 
 export default function LoginForm(props) {

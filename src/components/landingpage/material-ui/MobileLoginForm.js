@@ -14,7 +14,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import Slide from "@material-ui/core/Slide";
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import { uiConfig } from "../../firebaseConfig";
+import { uiConfig } from "../../configurations/firebaseConfig";
 import Logo from "../../../bulfmlimg/brokenulocklogo.png";
 
 const useStyles = makeStyles(theme => ({

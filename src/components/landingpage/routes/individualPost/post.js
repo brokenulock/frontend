@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import axiosWithAuth from "../../axiosConfig";
+import axiosWithAuth from "../../../configurations/axiosConfig";
 import { Form, Field, withFormik } from "formik";
 import * as Yup from "yup";
 import PostTopContent from "./postTopContent";
 import PostComments from "./postComments";
-import PostMap from "../googleMap/postMap";
+import PostMap from "../../googleMap/postMap";
+import PostInfo from "./postInfo.js";
 
 export default function Post(props) {
   const [post, setPost] = useState(false);
@@ -82,9 +83,14 @@ export default function Post(props) {
           background: "white"
         }}
       >
-        <PostComments postId={postId} commentAdded={button} />
-        <FormikPostForm id={postId} />
-        {post.location ? <PostMap post={post} /> : ""}
+        <PostInfo post={post} />
+        {console.log(post)}
+        <div>
+          <PostComments postId={postId} commentAdded={button} />
+          <FormikPostForm id={postId} />
+        </div>
+
+        <div>{post.location ? <PostMap post={post} /> : ""}</div>
       </div>
     </div>
   );

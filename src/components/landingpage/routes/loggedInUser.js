@@ -1,6 +1,7 @@
 import React from "react";
 import PostCard from "../material-ui/card";
 import moment from "moment";
+import EditProfile from "../material-ui/editProfile";
 
 export default function LoggedInPage(props) {
   const user = props.userData;
@@ -15,7 +16,7 @@ export default function LoggedInPage(props) {
         <div className="contactInfoContainer">
           <div className="contactInfo">
             <div className="usernameBio">
-              <p>Username: {!user.username ? user.username : "N/A"}</p>
+              <p>Username: {user.username ? user.username : "N/A"}</p>
               <p>First Name: {user.first_name ? user.first_name : "N/A"}</p>
               <p>Last Name: {user.last_name ? user.last_name : "N/A"}</p>
 
@@ -35,6 +36,7 @@ export default function LoggedInPage(props) {
             <p>Bio: {user.bio ? user.bio : "N/A"}</p>
           </div>
         </div>
+        <EditProfile user={user}/>
       </div>
       <div className="usersPosts">
         {user.posts && user.posts.length > 0 ? (
