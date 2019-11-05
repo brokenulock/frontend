@@ -25,6 +25,8 @@ export default function EditProfile(props) {
     return (
         <Form className="newPostForm">
           <Field type="text" name="bio" placeholder="Enter bio" className="inputField"/>
+          <Field type="text" name="bio" placeholder="Enter bio" className="inputField"/>
+          <Field type="text" name="bio" placeholder="Enter bio" className="inputField"/>
           {/* <Field type="text" name="year" placeholder="Enter year" />
           <Field
             type="text"
@@ -70,6 +72,7 @@ export default function EditProfile(props) {
       )
       .then(res => {
         setStatus(res.data);
+        setOpen(false);
       })
       .catch(err => console.log(err.response));
     }
