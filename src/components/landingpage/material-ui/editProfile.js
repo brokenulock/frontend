@@ -45,12 +45,6 @@ export default function EditProfile(props) {
     return (
       <Form className="newPostForm">
         <p style={{ color: "red" }}>{error}</p>
-        {/* <Field
-          type="text"
-          name="avatar"
-          placeholder="Change avatar"
-          className="inputField"
-        /> */}
         <Field
           type="text"
           name="bio"
@@ -164,9 +158,10 @@ export default function EditProfile(props) {
 
   return (
     <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+  
+      <button onClick={handleClickOpen}>
         Edit
-      </Button>
+      </button>
       <Dialog
         open={open}
         onClose={handleClose}

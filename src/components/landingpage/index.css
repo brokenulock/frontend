@@ -310,14 +310,14 @@
 .userPage {
   padding-top: 100px;
   min-height: 95vh;
-  width: 700px;
+  width: 800px;
   margin: auto;
 }
 
 .usersInfo {
   background: white;
   min-height: 100px;
-  width: 800px;
+  /* width: 700px; */
   display: flex;
   padding: 20px;
   display: flex;
@@ -328,7 +328,7 @@
   margin-top: 50px;
   background: white;
   min-height: 100px;
-  width: 800px;
+  /* width: 700px; */
   /* padding:40px; */
   border-radius: 10px;
   display: flex;
@@ -373,47 +373,101 @@
 
 .postUserHeader {
 }
+@media only screen and (max-width: 700px) {
+  .userPage {
+    width: 100%;
+  }
+  .usersInfo {
+    flex-direction: column;
+  }
+  .usersPosts{
+    justify-content: center;
+  }
+}
 
 /* New post page */
 
 .postFormPage {
   width: 400px;
   min-height: 90vh;
-  margin:auto;
-  padding-top:70px;
-  display: flex
+  margin: auto;
+  padding-top: 70px;
+  display: flex;
 }
 .formContainer {
   align-items: center;
   align-content: center;
   background: white;
-  margin:auto;
+  margin: auto;
   display: flex;
   flex-direction: column;
-  padding:10px;
+  padding: 10px;
   padding-top: 30px;
   border-radius: 20px;
 }
-.newPostHeader p{
+.newPostHeader p {
   /* margin: auto; */
   /* align-content: center; */
   text-align: center;
 }
-.newPostForm{
-  display:flex;
+.newPostForm {
+  display: flex;
   flex-direction: column;
-
 }
-.inputField{
-  width:350px;
+.inputField {
+  width: 350px;
 }
-.formButton{
-  margin:auto;
+.formButton {
+  margin: auto;
 }
 .progress {
   margin: auto;
   align-content: center;
-  width:80%;
-  max-width:400px;
-  height:40px;
+  width: 80%;
+  max-width: 400px;
+  height: 40px;
+}
+
+/* ************* instagram ************** */
+
+.instagramContainer {
+  padding-top: 70px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.instagramUserInfoContainer {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.instagramUserImage {
+  width: 170px;
+  height: 170px;
+}
+.recentPostHeader {
+  border-top: solid 1px white;
+  width: 60%;
+  margin: 10px auto;
+  color: white;
+}
+
+@media only screen and (max-width: 500px) {
+  .instagramContainer {
+    padding-top: 150px;
+  }
+  .instagramUserInfoContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .instagramUserImage {
+    margin: auto;
+  }
+  .recentPostHeader {
+    width: 100%;
+  }
 }
