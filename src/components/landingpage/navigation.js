@@ -23,7 +23,16 @@ export default function Navigation(props) {
       </div>
       {/* </Scroll> */}
       <TabletMenu signOut={props.signOut} signedin={props.signedin} />
+
       <nav className="navigation">
+        <Link
+          to="/instagram"
+          className="footerLink"
+          style={{ marginRight: "15px" }}
+        >
+          Instagram
+        </Link>
+
         <Link
           to={`/map/`}
           className="footerLink"
@@ -31,28 +40,13 @@ export default function Navigation(props) {
         >
           Map
         </Link>
-        <a
-          href="https://documenter.getpostman.com/view/7133880/SVfMUAdJ?version=latest"
-          className="footerLink"
-          style={{ marginRight: "15px" }}
-        >
-          Api Doc
-        </a>
-        <a
-          href="https://github.com/brokenulock"
-          className="footerLink"
-          style={{ marginRight: "15px" }}
-        >
-          Github Repo
-        </a>
         <Link
           to="/posts"
           className="footerLink"
           style={{ marginRight: "15px" }}
         >
-          Seeded Data
+          Posts
         </Link>
-
         {localStorage.getItem("token") || props.signedin ? (
           <>
             <Link

@@ -30,19 +30,6 @@ export default function PostEntry(props) {
     ":" +
     selectedDate.getSeconds();
 
-  // useEffect(() => {
-  //   console.log(image);
-  //   console.log(url);
-  //   console.log(error);
-  //   console.log(selectedDate.toISOString());
-  //   console.log(
-  //     selectedDate.getHours() +
-  //       ":" +
-  //       selectedDate.getMinutes() +
-  //       ":" +
-  //       selectedDate.getSeconds()
-  //   );
-  // }, [selectedDate]);
 
   const handleChange = e => {
     e.preventDefault();

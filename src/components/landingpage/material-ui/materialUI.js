@@ -38,20 +38,17 @@ export default function TabletMenu(props) {
       >
         <MenuItem onClick={handleClose}>
           <div style={{ display: "flex", flexDirection: "column" }}>
+            <Link
+              to="/instagram"
+              className="menuFont"
+            >
+              Instagram
+            </Link>
             <Link to={`/map/`} className="menuFont">
               Map
             </Link>
-            <a
-              href="https://documenter.getpostman.com/view/7133880/SVfMUAdJ?version=latest"
-              className="menuFont"
-            >
-              Api Doc
-            </a>
-            <a href="https://github.com/brokenulock" className="menuFont">
-              Github Repo
-            </a>
             <Link to="/posts" className="menuFont">
-              Seeded Data
+              Posts
             </Link>
             {localStorage.getItem("token") || props.signedin ? (
               <>

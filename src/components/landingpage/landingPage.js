@@ -11,8 +11,10 @@ import {
   Userpage,
   LoggedInPage,
   Post,
-  PostEntry
+  PostEntry,
+  Instagram
 } from "./routes/exportRoutes";
+import PrivateRoute from '../protectedRoutes/PrivateRoute'
 import axios from "axios";
 
 export default function LandingPage(props) {
@@ -33,24 +35,20 @@ export default function LandingPage(props) {
       <Navigation signOut={props.signOut} signedin={props.signedin} />
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
+      <Route exact path="/instagram" component={Instagram} />
       {/* <Route exact path="/posts" component={PostsPage} /> */}
       <Route
         exact
         path="/posts"
         render={() => <PostsPage posts={allPosts} />}
       />
-      <Route exact path="/new-post" component={PostEntry} />
-      <Route
+      <PrivateRoute exact path="/new-post" component={PostEntry} />
+      <PrivateRoute
         exact
         path="/user"
-        render={() => <LoggedInPage userData={props.userData} />}
+        component={() => <LoggedInPage userData={props.userData} />}
       />
       <Route exact path="/user/:id" component={Userpage} />
-      {/* <Route
-        exact
-        path="/user/:id"
-        render={() => <Userpage userData={props.userData} />} />*/}
-      
       <Route
         exact
         path="/map"
