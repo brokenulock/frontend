@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import LandingPage from "./components/landingpage/landingPage";
 import firebase from "firebase";
 import axios from "axios";
+import { UserContext } from "./components/context";
 
 function App() {
   const [firebaseLogin, setFirebaseLogin] = useState({ isSignedIn: false });
@@ -25,36 +26,36 @@ function App() {
               // console.log(res.data);
               setWelcome(res.data.message);
               localStorage.setItem("token", res.data.token);
-              authRequest(user)
+              authRequest(user);
             })
             .catch(err => {
               console.log(err);
             });
         } else if (localStorage.getItem("token")) {
-          authRequest(user)
+          authRequest(user);
         }
       }
     });
   }, [signedIn]);
 
-const authRequest = user => {
-  const config = {
-    headers: {
-      authorization: localStorage.getItem("token")
-    }
-  };
+  const authRequest = user => {
+    const config = {
+      headers: {
+        authorization: localStorage.getItem("token")
+      }
+    };
 
-  axios
-    .get(`${process.env.REACT_APP_DOMAIN_NAME}api/users/`, config)
-    .then(res => {
-      user = res.data
-      console.log(res.data);
-      setUserData(user);
-    })
-    .catch(err => {
-      console.log(err.response);
-    });
-}
+    axios
+      .get(`${process.env.REACT_APP_DOMAIN_NAME}api/users/`, config)
+      .then(res => {
+        user = res.data;
+        console.log(res.data);
+        setUserData(user);
+      })
+      .catch(err => {
+        console.log(err.response);
+      });
+  };
 
   const signOut = () => {
     firebase.auth().signOut();
@@ -63,12 +64,19 @@ const authRequest = user => {
   };
 
   return (
-    <div className="App">
-      <LandingPage signOut={signOut} signedin={signedIn} userData={userData} firebaseLogin={firebaseLogin} />
-      <div className="welcome">
+    <UserContext.Provider value={{userData, signedIn, firebaseLogin}}>
+      <div className="App">
+        <LandingPage
+          signOut={signOut}
+          signedin={signedIn}
+          userData={userData}
+          firebaseLogin={firebaseLogin}
+        />
+        {/* <div className="welcome">
         <h5>{welcome}</h5>
+      </div> */}
       </div>
-    </div>
+    </UserContext.Provider>
   );
 }
 

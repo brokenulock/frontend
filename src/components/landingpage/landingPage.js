@@ -40,7 +40,7 @@ export default function LandingPage(props) {
       <Route
         exact
         path="/posts"
-        render={() => <PostsPage posts={allPosts} />}
+        render={() => <PostsPage posts={allPosts} userData={props.userData} />}
       />
       <PrivateRoute exact path="/new-post" component={PostEntry} />
       <PrivateRoute

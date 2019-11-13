@@ -289,7 +289,7 @@
 /* posts page */
 
 .postContainer {
-  width: 100;
+  width: 100%;
   min-height: 95vh;
 }
 .cardsContainer {
@@ -368,9 +368,6 @@
   width: 700px;
   margin: auto;
 }
-.idPostContainer {
-}
-
 .postUserHeader {
 }
 @media only screen and (max-width: 700px) {
@@ -470,4 +467,10 @@
   .recentPostHeader {
     width: 100%;
   }
+}
+
+/* individual post  */
+
+.idPostContainer{
+  
 }

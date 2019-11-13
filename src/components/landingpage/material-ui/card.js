@@ -50,6 +50,7 @@ export default function PostCard(props) {
   return (
     <Card className={classes.card}>
       <Link
+      params={{hello: props.userData}}
         to={`/user/${props.post.user_id}`}
         title="View User"
         style={{ color: "black" }}
